@@ -29,7 +29,7 @@ SUBSCRIPTION_PLANS = {
 user_data = {}
 
 
-def start(update: Update, context: CallbackContext):
+async def start(update: Update, context: CallbackContext):
     """Send a message with a subscription plan when the command /start is issued."""
     keyboard = [
         [
@@ -49,7 +49,7 @@ def start(update: Update, context: CallbackContext):
     update.message.reply_text("Choose a subscription plan:", reply_markup=reply_markup)
 
 
-def plan_callback(update: Update, context: CallbackContext):
+async def plan_callback(update: Update, context: CallbackContext):
     """Handle the user's plan choice."""
     query = update.callback_query
     query.answer()
@@ -64,7 +64,7 @@ def plan_callback(update: Update, context: CallbackContext):
         )
 
 
-def message_handler(update: Update, context: CallbackContext):
+async def message_handler(update: Update, context: CallbackContext):
     """Handle user messages."""
     if update.message.chat_id == YOUR_TELEGRAM_ID:
         # Handle admin messages (broadcast, etc.)
@@ -74,7 +74,7 @@ def message_handler(update: Update, context: CallbackContext):
         pass
 
 
-def broadcast(update: Update, context: CallbackContext):
+async def broadcast(update: Update, context: CallbackContext):
     """Broadcast a message to all users."""
     if update.message.chat_id == YOUR_TELEGRAM_ID:
         message = update.message.text[10:]
@@ -83,7 +83,7 @@ def broadcast(update: Update, context: CallbackContext):
             context.bot.send_message(chat_id=user_id, text=message)
 
 
-def main():
+async def main():
     """Start the bot."""
     updater = Updater(TOKEN, use_context=True)
 
