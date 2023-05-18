@@ -1,4 +1,13 @@
 import logging
+import asyncio
+
+async def main():
+
+    # Your existing asynchronous code
+
+# Wrap the `main` function in `asyncio.run` to run the coroutine
+
+
 from telegram.constants import ParseMode
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
@@ -99,4 +108,6 @@ async def main():
 
 
 if __name__ == "__main__":
-    main()
+
+    asyncio.run(main())
+    
