@@ -57,7 +57,7 @@ def log(update, context):
 
 def main():
     # Create bot 
-    updater = Updater(BOT_TOKEN)
+    updater = Updater(BOT_TOKEN, update_queue=None)
  
 
     dp = updater.dispatcher
