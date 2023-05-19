@@ -57,7 +57,9 @@ def log(update, context):
 
 def main():
     # Create bot 
-    updater = Updater(BOT_TOKEN, use_context=True)
+    updater = Updater(BOT_TOKEN)
+ 
+
     dp = updater.dispatcher
 
     # Add admin commands 
